@@ -8,13 +8,11 @@ FROM ubuntu:20.04
 MAINTAINER Suhui, <suhui@kokona.tech>
 
 RUN apt-get update
-RUN DEBIAN_FRONTEND=noninteractive apt-get install openjdk-11-jre-headless locales language-pack-zh-hans-base -y
-RUN locale-gen zh_CN.UTF-8
-RUN update-locale LC_ALL=zh_CN.UTF-8
+RUN DEBIAN_FRONTEND=noninteractive apt-get install openjdk-11-jre-headless -y
 RUN adduser -D -h /home/container container
  
 USER container
-ENV  USER=container HOME=/home/container
+ENV  USER=container HOME=/home/container LANG=C.UTF-8
 
 WORKDIR /home/container
 
