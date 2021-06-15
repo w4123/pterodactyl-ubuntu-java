@@ -13,7 +13,7 @@ RUN wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | a
 RUN add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
 RUN DEBIAN_FRONTEND=noninteractive apt-get install adoptopenjdk-11-openj9-jre -y
 RUN rm -rf /var/lib/apt/lists/*
-RUN adduser -D -h /home/container container
+RUN adduser --disabled-password -h /home/container container
  
 USER container
 ENV  USER=container HOME=/home/container LANG=C.UTF-8
