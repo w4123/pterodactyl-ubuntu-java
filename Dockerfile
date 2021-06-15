@@ -12,6 +12,7 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install software-properties-common wg
 RUN wget -qO - https://adoptopenjdk.jfrog.io/adoptopenjdk/api/gpg/key/public | apt-key add -
 RUN add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
 RUN DEBIAN_FRONTEND=noninteractive apt-get install adoptopenjdk-11-openj9 -y
+RUN rm -rf /var/lib/apt/lists/*
 RUN adduser -D -h /home/container container
  
 USER container
